@@ -5,36 +5,17 @@ on:
     paths-ignore: ['**/*.md', 'evidence/**']
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Prepare source
-        run: |
-          if [ -f counterpoint-source.zip ]; then
-            python3 - <<'PY'
-          import zipfile,pathlib
-          with zipfile.ZipFile('counterpoint-source.zip') as archive:
-              for info in archive.infolist():
-                  path=pathlib.PurePosixPath(info.filename)
-                  if path.is_absolute() or '..' in path.parts or info.filename.startswith('.github/'):
-                      raise ValueError('Invalid source path')
-              archive.extractall('.')
-          PY
-            rm counterpoint-source.zip
-            git config user.name 'gqzy1'
-            git config user.email '155161534+gqzy1@users.noreply.github.com'
-            git add -A
-            git commit -m 'Build the COUNTERPOINT reasoning atelier'
-            git push
-          fi
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
