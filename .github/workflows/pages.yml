@@ -1,0 +1,62 @@
+name: Publish COUNTERPOINT
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['**/*.md', 'evidence/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare source
+        run: |
+          if [ -f counterpoint-source.zip ]; then
+            python3 - <<'PY'
+          import zipfile,pathlib
+          with zipfile.ZipFile('counterpoint-source.zip') as archive:
+              for info in archive.infolist():
+                  path=pathlib.PurePosixPath(info.filename)
+                  if path.is_absolute() or '..' in path.parts or info.filename.startswith('.github/'):
+                      raise ValueError('Invalid source path')
+              archive.extractall('.')
+          PY
+            rm counterpoint-source.zip
+            git config user.name 'gqzy1'
+            git config user.email '155161534+gqzy1@users.noreply.github.com'
+            git add -A
+            git commit -m 'Build the COUNTERPOINT reasoning atelier'
+            git push
+          fi
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+      - run: npm test
+      - run: npm run test:contract
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Publish
+        id: deployment
+        uses: actions/deploy-pages@v4
