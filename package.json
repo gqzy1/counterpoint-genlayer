@@ -1,0 +1,23 @@
+{
+  "name": "counterpoint-genlayer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "node scripts/prepare.mjs && vite build",
+    "test": "node --test tests/*.test.js",
+    "test:contract": "python3 -m unittest discover -s contract-tests -v"
+  },
+  "dependencies": {
+    "@fontsource/instrument-serif": "5.2.6",
+    "@fontsource/manrope": "5.2.8",
+    "@fontsource/dm-mono": "5.2.7",
+    "genlayer-js": "1.1.8",
+    "three": "0.182.0",
+    "viem": "2.57.13"
+  },
+  "devDependencies": {
+    "vite": "6.4.1"
+  }
+}

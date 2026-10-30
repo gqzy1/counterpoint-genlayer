@@ -1,0 +1,55 @@
+{
+  "chain_id": 61999,
+  "contract": "0xFbAc1b283b1Ae7f311f8A79b8AcdcD95750bd462",
+  "observation_source": "GenLayer Studio Explorer contract transaction table",
+  "transactions": [
+    {
+      "method": "deploy",
+      "hash": "0xa2d8b38975a3320e3fb355f5be8aa6809f509b795fae5ffee113a1f1f2b0543f",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "consensus": "Accepted",
+      "url": "https://explorer-studio.genlayer.com/tx/0xa2d8b38975a3320e3fb355f5be8aa6809f509b795fae5ffee113a1f1f2b0543f"
+    },
+    {
+      "method": "open_room (initial record)",
+      "hash": "0xdb28ac8f7fa403d3a81296cd91c26b4e31bd90810f82fcf5be44df5ef9fcd6e0",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "consensus": "Accepted",
+      "url": "https://explorer-studio.genlayer.com/tx/0xdb28ac8f7fa403d3a81296cd91c26b4e31bd90810f82fcf5be44df5ef9fcd6e0"
+    },
+    {
+      "method": "open_room",
+      "hash": "0x0be3c572d1212b1a05d7ca3d72536aa634b77ae4fa5408e1bcdab326ec8bfeb9",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "consensus": "Accepted",
+      "url": "https://explorer-studio.genlayer.com/tx/0x0be3c572d1212b1a05d7ca3d72536aa634b77ae4fa5408e1bcdab326ec8bfeb9"
+    },
+    {
+      "method": "submit_voice A",
+      "hash": "0xc6970a6ad58b85f448cb5016168e60ef9f4aa773f839a1f5b1ff54ce8aeb20c1",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "consensus": "Accepted",
+      "url": "https://explorer-studio.genlayer.com/tx/0xc6970a6ad58b85f448cb5016168e60ef9f4aa773f839a1f5b1ff54ce8aeb20c1"
+    },
+    {
+      "method": "submit_voice B",
+      "hash": "0x63460fb6fc10970f2e835f83e6d85d677c0d1b3ca8fc2b1ea9961150193ad478",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "consensus": "Accepted",
+      "url": "https://explorer-studio.genlayer.com/tx/0x63460fb6fc10970f2e835f83e6d85d677c0d1b3ca8fc2b1ea9961150193ad478"
+    },
+    {
+      "method": "map_room",
+      "hash": "0xde255b1cee541b7b597114c5317250d18a1a74d710de4b1ca7dfe6940673f28e",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "consensus": "MAJORITY_AGREE",
+      "url": "https://explorer-studio.genlayer.com/tx/0xde255b1cee541b7b597114c5317250d18a1a74d710de4b1ca7dfe6940673f28e"
+    }
+  ]
+}

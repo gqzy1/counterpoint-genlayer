@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {abi} from 'genlayer-js';
+import {bindReceipt,bindReadback} from '../src/chain.js';
+const sender='0xb87de528abc92f4acd0da4c98b93b386fe8c2877',address='0xFbAc1b283b1Ae7f311f8A79b8AcdcD95750bd462';
+const calldata='FgRhcmdzHYQBZ2FsbGVyeS1tdnVwczh5MfQDU2hvdWxkIHRoZSBleGhpYml0aW9uIHBsYWNlIGEgcGxpbnRoIGFjcm9zcyB0aGUgZW50cmFuY2UgcmFtcD/cBVsiMHhiODdkZTUyOGFiYzkyZjRhY2QwZGE0Yzk4YjkzYjM4NmZlOGMyODc3IiwiMHhhOTU2MDc1MDkxZWM0MjE2YWQxMzI0MjgyOTRlOGI3NDk2ODg2NTMyIl0GbWV0aG9kTG9wZW5fcm9vbQ==';
+const intent={sender,address,method:'open_room',args:['gallery-mvups8y1','Should the exhibition place a plinth across the entrance ramp?','["0xb87de528abc92f4acd0da4c98b93b386fe8c2877","0xa956075091ec4216ad132428294e8b7496886532"]']};
+test('the real Studio calldata Map binds to its original intent',()=>{assert.ok(abi.calldata.decode(Buffer.from(calldata,'base64')) instanceof Map);bindReceipt({from_address:sender,to_address:address,data:{calldata}},intent);});
+test('changed recipient, sender, method or arguments fail receipt binding',()=>{const tx={from_address:sender,to_address:address,data:{calldata}};for(const changed of [{...intent,address:'0x'+'9'.repeat(40)},{...intent,sender:'0x'+'8'.repeat(40)},{...intent,method:'map_room'},{...intent,args:['different']}])assert.throws(()=>bindReceipt(tx,changed));assert.throws(()=>bindReceipt({...tx,leader_only:true},intent));});
+test('a voice readback must retain its exact owner and submitted words',()=>{const args={arguments:[{title:'First thought','text':'Our first original statement.'},{title:'Second thought','text':'Our second original statement.'}],challenges:[]};const p={sender,method:'submit_voice',args:['room',JSON.stringify(args)]};bindReadback({members:[sender],voices:[args]},p);assert.throws(()=>bindReadback({members:[sender],voices:[{...args,arguments:[]}]},p));});

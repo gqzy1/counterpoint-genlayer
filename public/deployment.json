@@ -1,0 +1,10 @@
+{
+  "version": "counterpoint-1",
+  "chain_id": 61999,
+  "rpc": "https://studio.genlayer.com/api",
+  "address": "0xFbAc1b283b1Ae7f311f8A79b8AcdcD95750bd462",
+  "example": "0x622f6ff6cbc8136db351d5eaafad8ea1052fbac5:gallery-mvuq09hz",
+  "source_sha256": "fc0c1d10302f27c87931be73ac9dc71a6fd65b7fbe0e4dbac3423309071805fd",
+  "deployment_transaction": "0xa2d8b38975a3320e3fb355f5be8aa6809f509b795fae5ffee113a1f1f2b0543f",
+  "example_transaction": "0xde255b1cee541b7b597114c5317250d18a1a74d710de4b1ca7dfe6940673f28e"
+}

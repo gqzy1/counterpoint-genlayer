@@ -1,0 +1,204 @@
+{
+  "chain_id": 61999,
+  "contract": "0xFbAc1b283b1Ae7f311f8A79b8AcdcD95750bd462",
+  "read_at": "2026-10-30T08:48:00.614Z",
+  "room": {
+    "accepted_edges": [
+      [
+        "A2",
+        "B1"
+      ],
+      [
+        "B1",
+        "A1"
+      ]
+    ],
+    "arguments": [
+      {
+        "author": "0x622f6ff6cbc8136db351d5eaafad8ea1052fbac5",
+        "id": "A1",
+        "text": "The exhibition should not place the plinth at the entrance because doing so would block the only wheelchair ramp.",
+        "title": "Keep the only ramp clear"
+      },
+      {
+        "author": "0x622f6ff6cbc8136db351d5eaafad8ea1052fbac5",
+        "id": "A2",
+        "text": "The west-side ramp is closed for the entire exhibition. Its existence therefore does not establish that a second accessible route is available.",
+        "title": "The west ramp is closed"
+      },
+      {
+        "author": "0xdefac2cf8e82a845409614f9cf1fb35a994250b1",
+        "id": "B1",
+        "text": "The exhibition may place the plinth at the entrance. A second wheelchair ramp is available on the west side, so the entrance ramp is not the only accessible route.",
+        "title": "There is a second ramp"
+      },
+      {
+        "author": "0xdefac2cf8e82a845409614f9cf1fb35a994250b1",
+        "id": "B2",
+        "text": "The exhibition should print a tactile route guide, helping visitors understand the accessible routes before they arrive.",
+        "title": "Print a tactile route guide"
+      }
+    ],
+    "challenges": [
+      {
+        "basis": "A closed ramp cannot support the claim that an alternative accessible route is available.",
+        "source": "A2",
+        "target": "B1"
+      },
+      {
+        "basis": "Allowing the plinth at the entrance directly opposes keeping it away from that entrance.",
+        "source": "B1",
+        "target": "A1"
+      },
+      {
+        "basis": "Printing a guide does not establish that blocking the only ramp is acceptable.",
+        "source": "B2",
+        "target": "A1"
+      }
+    ],
+    "findings": [
+      {
+        "kind": "UNDERCUT",
+        "reason": "The source directly denies the target's stated premise/inference that the west-side ramp establishes an available second accessible route.",
+        "source_quote": "The west-side ramp is closed for the entire exhibition. Its existence therefore does not establish that a second accessible route is available.",
+        "target_quote": "A second wheelchair ramp is available on the west side, so the entrance ramp is not the only accessible route."
+      },
+      {
+        "kind": "REBUTTAL",
+        "reason": "These conclusions explicitly conflict about the same action under the same exhibition conditions.",
+        "source_quote": "The exhibition may place the plinth at the entrance.",
+        "target_quote": "The exhibition should not place the plinth at the entrance"
+      },
+      {
+        "kind": "NOT_ATTACK",
+        "reason": "The source proposes an additional accessibility measure but does not challenge the target's premise or conclusion about blocking the only ramp.",
+        "source_quote": "The exhibition should print a tactile route guide, helping visitors understand the accessible routes before they arrive.",
+        "target_quote": "The exhibition should not place the plinth at the entrance because doing so would block the only wheelchair ramp."
+      }
+    ],
+    "id": "0x622f6ff6cbc8136db351d5eaafad8ea1052fbac5:gallery-mvuq09hz",
+    "input_digest": "3021fbebf4860a5c6baee156dcadb27e426ee54dcb5750406c1e93046ab6bf54",
+    "members": [
+      "0x622f6ff6cbc8136db351d5eaafad8ea1052fbac5",
+      "0xdefac2cf8e82a845409614f9cf1fb35a994250b1"
+    ],
+    "owner": "0x622f6ff6cbc8136db351d5eaafad8ea1052fbac5",
+    "question": "Should the exhibition place a plinth across the entrance ramp?",
+    "result_digest": "37f7afe82a86517656421ac0f6482d2dcdf9e53707e9640e83d2c4c868132b70",
+    "semantics": {
+      "in": [
+        "A1",
+        "A2",
+        "B2"
+      ],
+      "knots": [],
+      "labels": {
+        "A1": "IN",
+        "A2": "IN",
+        "B1": "OUT",
+        "B2": "IN"
+      },
+      "out": [
+        "B1"
+      ],
+      "trace": [
+        {
+          "in": [
+            "A2",
+            "B2"
+          ],
+          "out": [
+            "B1"
+          ],
+          "round": 1
+        },
+        {
+          "in": [
+            "A1"
+          ],
+          "out": [],
+          "round": 2
+        }
+      ],
+      "undecided": [],
+      "witnesses": [
+        {
+          "attackers": [
+            "B1"
+          ],
+          "defeated_by": null,
+          "id": "A1",
+          "label": "IN"
+        },
+        {
+          "attackers": [],
+          "defeated_by": null,
+          "id": "A2",
+          "label": "IN"
+        },
+        {
+          "attackers": [
+            "A2"
+          ],
+          "defeated_by": "A2",
+          "id": "B1",
+          "label": "OUT"
+        },
+        {
+          "attackers": [],
+          "defeated_by": null,
+          "id": "B2",
+          "label": "IN"
+        }
+      ]
+    },
+    "status": "MAPPED",
+    "version": "counterpoint-1",
+    "voices": [
+      {
+        "arguments": [
+          {
+            "text": "The exhibition should not place the plinth at the entrance because doing so would block the only wheelchair ramp.",
+            "title": "Keep the only ramp clear"
+          },
+          {
+            "text": "The west-side ramp is closed for the entire exhibition. Its existence therefore does not establish that a second accessible route is available.",
+            "title": "The west ramp is closed"
+          }
+        ],
+        "challenges": [
+          {
+            "basis": "A closed ramp cannot support the claim that an alternative accessible route is available.",
+            "source": "A2",
+            "target": "B1"
+          }
+        ]
+      },
+      {
+        "arguments": [
+          {
+            "text": "The exhibition may place the plinth at the entrance. A second wheelchair ramp is available on the west side, so the entrance ramp is not the only accessible route.",
+            "title": "There is a second ramp"
+          },
+          {
+            "text": "The exhibition should print a tactile route guide, helping visitors understand the accessible routes before they arrive.",
+            "title": "Print a tactile route guide"
+          }
+        ],
+        "challenges": [
+          {
+            "basis": "Allowing the plinth at the entrance directly opposes keeping it away from that entrance.",
+            "source": "B1",
+            "target": "A1"
+          },
+          {
+            "basis": "Printing a guide does not establish that blocking the only ramp is acceptable.",
+            "source": "B2",
+            "target": "A1"
+          }
+        ]
+      }
+    ]
+  },
+  "source": "live-finalized-readback"
+}
